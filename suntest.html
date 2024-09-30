@@ -15,7 +15,7 @@
         html {
             margin: 0;
             padding: 0;
-            height: 200vh;
+            height: 2000vh;
             overflow-x: hidden;
             background-color: #d69e2d;
             /* Set initial background color */
@@ -74,7 +74,9 @@
     </div>
     <script>
         function updateSun() {
-            const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+            const scrollY = window.scrollY;
+            const maxScroll = 2 * window.innerHeight; // 200vh
+            const scrollPercentage = Math.min(scrollY / maxScroll, 1); // Cap at 1
             const sun = document.getElementById('sun');
             const sky = document.getElementById('sky');
 
