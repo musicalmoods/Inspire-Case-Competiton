@@ -17,6 +17,8 @@
             padding: 0;
             height: 200vh;
             overflow-x: hidden;
+            background-color: #d69e2d;
+            /* Set initial background color */
         }
 
         #sun {
@@ -27,6 +29,7 @@
             width: 100px;
             height: 100px;
             background-color: #d69e2d;
+            /* Set initial sun color */
             border-radius: 50%;
             transition: 0.5s ease;
             display: flex;
@@ -47,6 +50,7 @@
             width: 100%;
             height: 100vh;
             background-color: #d69e2d;
+            /* Set initial sky color */
             transition: 0.5s ease;
         }
 
@@ -75,15 +79,15 @@
             const sky = document.getElementById('sky');
 
             // Change sun color from yellow to orange-red
-            const sunR = 255;
-            const sunG = Math.round(255 - scrollPercentage * 165);
-            const sunB = 0;
+            const sunR = 214;
+            const sunG = 158;
+            const sunB = 45;
 
             sun.style.backgroundColor = `rgb(${sunR}, ${sunG}, ${sunB})`;
 
             // Change sky color from yellow to blue
-            const skyR = Math.round(255 - scrollPercentage * 120);
-            const skyG = Math.round(255 - scrollPercentage * 49);
+            const skyR = Math.round(214 - scrollPercentage * 120);
+            const skyG = Math.round(158 - scrollPercentage * 49);
             const skyB = Math.round(scrollPercentage * 255);
 
             sky.style.backgroundColor = `rgb(${skyR}, ${skyG}, ${skyB})`;
