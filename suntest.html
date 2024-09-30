@@ -105,11 +105,17 @@
             sun.style.boxShadow = `0 0 ${shadowBlur}px ${shadowBlur / 2}px rgba(255, 160, 0, 0.7)`;
 
             // Update sun position
-            const sunTop = 50 - scrollPercentage * 50; // From 50% to 0%
-            const sunLeft = 50 - scrollPercentage * 50; // From 50% to 0%
+            if (scrollPercentage > 0.1) {
+                const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9; // From 50% to 0%
+                const sunLeft = 50 - (scrollPercentage - 0.1) * 50 / 0.9; // From 50% to 0%
 
-            sun.style.top = `calc(${sunTop}% + 80px)`;
-            sun.style.left = `calc(${sunLeft}% + 80px)`;
+                sun.style.top = `calc(${sunTop}% + 80px)`;
+                sun.style.left = `calc(${sunLeft}% + 80px)`;
+            } else {
+                sun.style.top = '50%';
+                sun.style.left = '50%';
+            }
+
             sun.style.transform = `translate(-50%, -50%)`;
         }
 
