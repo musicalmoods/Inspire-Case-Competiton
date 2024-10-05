@@ -7,7 +7,6 @@
     <meta http-equiv="refresh" content="120">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/InspireLogo.png">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
     <script defer src='app.js'></script>
     <title>Sun test</title>
     <style>
@@ -18,7 +17,6 @@
             height: 2000vh;
             overflow-x: hidden;
             background-color: #d69e2d;
-            /* Set initial background color */
         }
 
         #sun {
@@ -29,7 +27,6 @@
             width: 100px;
             height: 100px;
             background-color: #d69e2d;
-            /* Set initial sun color */
             border-radius: 50%;
             transition: 0.5s ease;
             display: flex;
@@ -50,7 +47,6 @@
             width: 100%;
             height: 100vh;
             background-color: #d69e2d;
-            /* Set initial sky color */
             transition: 0.5s ease;
         }
 
@@ -75,26 +71,23 @@
     <script>
         function updateSun() {
             const scrollY = window.scrollY;
-            const maxScroll = 2 * window.innerHeight; // 200vh
-            const scrollPercentage = Math.min(scrollY / maxScroll, 1); // Cap at 1
+            const maxScroll = 2 * window.innerHeight;
+            const scrollPercentage = Math.min(scrollY / maxScroll, 1);
             const sun = document.getElementById('sun');
             const sky = document.getElementById('sky');
 
-            // Change sun color from yellow to orange-red
             const sunR = 214;
             const sunG = 158;
             const sunB = 45;
 
             sun.style.backgroundColor = `rgb(${sunR}, ${sunG}, ${sunB})`;
 
-            // Change sky color from yellow to blue
-            const skyR = Math.round(214 - scrollPercentage * 120);
-            const skyG = Math.round(158 - scrollPercentage * 49);
-            const skyB = Math.round(scrollPercentage * 255);
+            const skyR = Math.round(214 - scrollPercentage * (214 - 113));
+            const skyG = Math.round(158 - scrollPercentage * (158 - 139));
+            const skyB = Math.round(45 + scrollPercentage * (174 - 45));
 
             sky.style.backgroundColor = `rgb(${skyR}, ${skyG}, ${skyB})`;
 
-            // Calculate sun size (start at 100vmin, end at 100px)
             const maxSize = Math.min(window.innerWidth, window.innerHeight);
             const minSize = 100;
             const size = maxSize - scrollPercentage * (maxSize - minSize);
@@ -102,14 +95,12 @@
             sun.style.width = `${size}px`;
             sun.style.height = `${size}px`;
 
-            // Add box shadow for glow effect
             const shadowBlur = Math.round(scrollPercentage * 50);
             sun.style.boxShadow = `0 0 ${shadowBlur}px ${shadowBlur / 2}px rgba(255, 160, 0, 0.7)`;
 
-            // Update sun position
             if (scrollPercentage > 0.1) {
-                const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9; // From 50% to 0%
-                const sunLeft = 50 - (scrollPercentage - 0.1) * 50 / 0.9; // From 50% to 0%
+                const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
+                const sunLeft = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
 
                 sun.style.top = `calc(${sunTop}% + 80px)`;
                 sun.style.left = `calc(${sunLeft}% + 80px)`;
@@ -123,7 +114,7 @@
 
         window.addEventListener('scroll', updateSun);
         window.addEventListener('resize', updateSun);
-        updateSun(); // Initial call to set up the scene
+        updateSun();
     </script>
 </body>
 
