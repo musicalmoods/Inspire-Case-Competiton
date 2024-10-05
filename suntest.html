@@ -56,6 +56,14 @@
             color: #333;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+
+        #info {
+            position: relative;
+            padding: 20px;
+            color: #333;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 325vh;
+        }
     </style>
 </head>
 
@@ -68,6 +76,11 @@
         <h1>Sun Test Page 1</h1>
         <a href="index.html">Back to homepage</a>
     </div>
+    <section class="hidden">
+        <div id="info">
+            <h1 class="bodyfont">Hello, World!</h1>
+        </div>
+    </section>
     <script>
         function updateSun() {
             const scrollY = window.scrollY;
@@ -96,7 +109,8 @@
             sun.style.height = `${size}px`;
 
             const shadowBlur = Math.round(scrollPercentage * 50);
-            sun.style.boxShadow = `0 0 ${shadowBlur}px ${shadowBlur / 2}px rgba(255, 160, 0, 0.7)`;
+            const shadowSpread = Math.round(scrollPercentage * 20);
+            sun.style.boxShadow = `0 0 ${shadowBlur}px ${shadowSpread}px rgba(247, 241, 217, 1)`;
 
             if (scrollPercentage > 0.1) {
                 const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
