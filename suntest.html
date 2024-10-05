@@ -110,7 +110,14 @@
 
             const shadowBlur = Math.round(scrollPercentage * 50);
             const shadowSpread = Math.round(scrollPercentage * 20);
-            sun.style.boxShadow = `0 0 ${shadowBlur}px ${shadowSpread}px rgba(247, 241, 217, 1)`;
+
+            const yellowGlowOpacity = 1 - scrollPercentage;
+            const whiteGlowOpacity = scrollPercentage;
+
+            sun.style.boxShadow = `
+                0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 0, ${yellowGlowOpacity}),
+                0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 255, ${whiteGlowOpacity})
+            `;
 
             if (scrollPercentage > 0.1) {
                 const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
