@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +7,30 @@
     <meta http-equiv="refresh" content="120">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/InspireLogo.png">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-    <title>Inspire</title>
     <script defer src='app.js'></script>
+    <title>Sun test</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: auto;
+            overflow-x: hidden;
+            background-color: #d69e2d;
+        }
+    </style>
 </head>
 
-<body style="background-color: #d69e2d">
-    <a href="suntest.html">Sun Test</a>
-    <a href="https://musicalmoods.github.io/Inspire-Case-Competiton/">
-        <img style="width: 100%" src="assets/Inspire_Case_Competition_Logo.png" alt="Inspire Case Competition">
-    </a>
+<body>
+    <div id="sky"></div>
+    <div id="sun">
+        <img src="assets/Inspire_Case_Competition_Logo.png" alt="Inspire Case Competition">
+    </div>
+    <section class="hidden">
+        <div id="info">
+            <h1 class="bodyfont">Hello, World!</h1>
+        </div>
+    </section>
     <section class="hidden">
         <h1>Hello, world</h1>
     </section>
@@ -40,7 +54,7 @@
     <section class="hidden">
         <p>musicalmoods</p>
     </section>
-    <section class="hidden">
+    <section class="hidden" style="padding: 10%">
         <h1 style="color:greenyellow; font-family:verdana; padding-top: 50px; padding-left: 15px;">Example Page 2</h1>
         <hr>
         <p class="bodyfont">This is the second example page in UniPool, this is just for testing purposes.</p>
@@ -227,6 +241,62 @@
             musicalmoods
         </p>
     </section>
+    <script>
+        function updateSun() {
+            const scrollY = window.scrollY;
+            const maxScroll = 2 * window.innerHeight;
+            const scrollPercentage = Math.min(scrollY / maxScroll, 1);
+            const sun = document.getElementById('sun');
+            const sky = document.getElementById('sky');
+
+            const sunR = 214;
+            const sunG = 158;
+            const sunB = 45;
+
+            sun.style.backgroundColor = `rgb(${sunR}, ${sunG}, ${sunB})`;
+
+            const skyR = Math.round(214 - scrollPercentage * (214 - 113));
+            const skyG = Math.round(158 - scrollPercentage * (158 - 139));
+            const skyB = Math.round(45 + scrollPercentage * (174 - 45));
+
+            sky.style.backgroundColor = `rgb(${skyR}, ${skyG}, ${skyB})`;
+
+            const maxSize = Math.min(window.innerWidth, window.innerHeight);
+            const minSize = 100;
+            const size = maxSize - scrollPercentage * (maxSize - minSize);
+
+            sun.style.width = `${size}px`;
+            sun.style.height = `${size}px`;
+
+            const shadowBlur = Math.round(scrollPercentage * 50);
+            const shadowSpread = Math.round(scrollPercentage * 20);
+
+            const yellowGlowOpacity = 1 - scrollPercentage;
+            const whiteGlowOpacity = scrollPercentage;
+
+            sun.style.boxShadow = `
+                0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 0, ${yellowGlowOpacity}),
+                0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 255, ${whiteGlowOpacity})
+            `;
+
+            if (scrollPercentage > 0.1) {
+                const sunTop = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
+                const sunLeft = 50 - (scrollPercentage - 0.1) * 50 / 0.9;
+
+                sun.style.top = `calc(${sunTop}% + 80px)`;
+                sun.style.left = `calc(${sunLeft}% + 80px)`;
+            } else {
+                sun.style.top = '50%';
+                sun.style.left = '50%';
+            }
+
+            sun.style.transform = `translate(-50%, -50%)`;
+        }
+
+        window.addEventListener('scroll', updateSun);
+        window.addEventListener('resize', updateSun);
+        updateSun();
+    </script>
 </body>
 
 </html>
