@@ -60,3 +60,49 @@ section {
     color: orangered;
     padding: 15px;
 }
+
+#sun {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: #d69e2d;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sun img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #d69e2d;
+    transition: 0.5s ease;
+}
+
+#content {
+    position: relative;
+    padding: 20px;
+    color: #333;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#info {
+    position: relative;
+    padding: 20px;
+    color: #333;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 325vh;
+}
