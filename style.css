@@ -5,7 +5,8 @@ body {
     color: #ffffff;
     padding: 0;
     margin: 0;
-    font-family: "ubuntu";
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
 }
 
 section {
@@ -52,13 +53,15 @@ section {
 
 .bodyfont {
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
     font-size: 15px;
     padding: 15px;
 }
 
 .madeby {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
     color: orangered;
     padding: 15px;
 }
@@ -98,13 +101,15 @@ section {
     position: relative;
     padding: 20px;
     color: #333;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
 }
 
 #info {
     position: relative;
     padding: 20px;
     color: #333;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
     margin-top: 325vh;
 }
