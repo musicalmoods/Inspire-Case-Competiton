@@ -146,6 +146,7 @@ section {
 #info {
     position: relative;
     padding: 20px;
+    padding-left: 30px;
     color: #333;
     font-family: "Ubuntu", sans-serif;
     font-style: normal;
