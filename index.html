@@ -246,7 +246,6 @@
             const skyG = Math.round(158 - scrollPercentage * (158 - 139));
             const skyB = Math.round(45 + scrollPercentage * (174 - 45));
             sky.style.backgroundColor = `rgb(${skyR}, ${skyG}, ${skyB})`;
-
             if (window.innerWidth < 900) {
                 const maxSize = Math.min(window.innerWidth, window.innerHeight);
                 const minSize = 50;
@@ -291,12 +290,10 @@
                 sun.style.transform = 'translate(-50%, -50%)';
             }
         }
-
         window.addEventListener('scroll', updateSun);
         window.addEventListener('resize', updateSun);
         updateSun();
     </script>
-
 </body>
 
 </html>
