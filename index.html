@@ -262,13 +262,14 @@
                     0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 255, ${whiteGlowOpacity})
                 `;
                 if (scrollPercentage > 0.1) {
-                    sun.style.top = `calc(${5 + scrollPercentage * 45}% + 15px)`;
-                    sun.style.left = `calc(${5 + scrollPercentage * 45}% + 15px)`;
+                    sun.style.top = `calc(2% + 15px)`;
+                    sun.style.left = `calc(2% + 15px)`;
+                    sun.style.transform = 'translate(-2%, -2%)';
                 } else {
                     sun.style.top = '50%';
                     sun.style.left = '50%';
+                    sun.style.transform = 'translate(-50%, -50%)';
                 }
-                sun.style.transform = 'translate(-50%, -50%)';
             } else {
                 const maxSize = Math.min(window.innerWidth, window.innerHeight);
                 const minSize = 100;
@@ -295,7 +296,6 @@
         window.addEventListener('resize', updateSun);
         updateSun();
     </script>
-
 
 </body>
 
