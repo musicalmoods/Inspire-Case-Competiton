@@ -54,7 +54,8 @@ section {
 
     #sun {
         width: 10px;
-        height: 10px;
+        height: 1000px;
+        object-fit: contain;
     }
 }
 
