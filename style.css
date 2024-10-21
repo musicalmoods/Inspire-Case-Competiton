@@ -159,3 +159,20 @@ section {
     font-style: normal;
     margin-top: 325vh;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #468B8F;
+    box-shadow: inset 0 0 5px rgba(0, 57, 57, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, left bottom, left top,
+            color-stop(0.2, #5C879F),
+            color-stop(0.5, #63B8EE),
+            color-stop(0.8, #468B8F));
+}
