@@ -82,6 +82,14 @@ section {
     transition-delay: 600ms;
 }
 
+.logo:nth-child(5) {
+    transition-delay: 800ms;
+}
+
+.logo:nth-child(6) {
+    transition-delay: 1000ms;
+}
+
 .show {
     opacity: 1;
     filter: blur(0);
