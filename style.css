@@ -169,7 +169,7 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-    background: #718bae;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
