@@ -1,6 +1,5 @@
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
         } else {
@@ -26,6 +25,7 @@ function updateSun() {
     const skyG = Math.round(158 - scrollPercentage * (158 - 139));
     const skyB = Math.round(45 + scrollPercentage * (174 - 45));
     sky.style.backgroundColor = `rgb(${skyR}, ${skyG}, ${skyB})`;
+
     if (window.innerWidth < 900) {
         const maxSize = Math.min(window.innerWidth, window.innerHeight);
         const minSize = 50;
@@ -74,3 +74,46 @@ function updateSun() {
 window.addEventListener('scroll', updateSun);
 window.addEventListener('resize', updateSun);
 updateSun();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const mouseElement = document.querySelector('.mouse');
+
+    document.addEventListener('scroll', function () {
+        const scrollPosition = window.scrollY;
+        const vh180 = window.innerHeight * 1.8;
+        const vh200 = window.innerHeight * 2;
+
+        if (scrollPosition > vh200) {
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.top = '60px';
+        } else if (scrollPosition > vh180) {
+            scrollIndicator.style.opacity = '0.5';
+            scrollIndicator.style.top = '35px';
+        } else {
+            scrollIndicator.style.opacity = '1';
+            scrollIndicator.style.top = '10px';
+        }
+    });
+
+    const updatePosition = () => {
+        const scrollPosition = window.scrollY;
+        const vh200 = window.innerHeight * 2;
+
+        if (scrollPosition <= vh200) {
+            mouseElement.style.position = 'fixed';
+            mouseElement.style.top = '80%';
+            mouseElement.style.left = '50%';
+            mouseElement.style.transform = 'translate(-50%, -50%)';
+        } else {
+            mouseElement.style.position = 'absolute';
+            mouseElement.style.top = `${vh200}px`;
+            mouseElement.style.left = '50%';
+            mouseElement.style.transform = 'translateX(-2000%)';
+        }
+    };
+
+    updatePosition();
+    window.addEventListener('scroll', updatePosition);
+    window.addEventListener('resize', updatePosition);
+});
