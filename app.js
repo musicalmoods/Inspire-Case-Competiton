@@ -61,7 +61,7 @@ function updateSun() {
         const whiteGlowOpacity = scrollPercentage;
         sun.style.boxShadow = `
             0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 0, ${yellowGlowOpacity}),
-            0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 255, ${whiteGlowOpacity})
+            0 0 ${shadowBlur}px ${shadowSpread}px rgba(255, 255, 150, ${whiteGlowOpacity})
         `;
         const sunTop = 50 - scrollPercentage * 50;
         const sunLeft = 50 - scrollPercentage * 50;
