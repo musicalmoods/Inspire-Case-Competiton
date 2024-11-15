@@ -10,6 +10,6 @@ class SeedlingAnimation(Scene):
         self.play(FadeIn(seedling_mobject))
         seedling_path = Line(ORIGIN, 4*LEFT + 3*UP)
         self.play(MoveAlongPath(seedling_mobject, seedling_path), run_time=5, rate_func=smooth)
-        inspire_text = Text("Inspire", font_size=72, color=WHITE, font="Ubuntu").move_to(ORIGIN)
+        inspire_text = Text("Inspire", font_size=72, color=WHITE, font="roboto").move_to(ORIGIN)
         self.play(Write(inspire_text))
         self.wait(2)

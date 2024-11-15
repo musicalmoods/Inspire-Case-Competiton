@@ -246,7 +246,7 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #718bae;
 }
 
 ::-webkit-scrollbar-thumb {
