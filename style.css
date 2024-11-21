@@ -241,6 +241,14 @@ section {
     }
 }
 
+.schedulefont {
+    font-size: larger;
+    font-family: "Lexend Deca", sans-serif;
+    word-spacing: 2px;
+    line-height: 30px;
+    color: whitesmoke;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
